@@ -82,7 +82,7 @@
               :current-page="page.current"
               :page-size="page.size"
               :total="page.total"
-              @current-change="onPageNumChange"
+              @current-change="onpageNumberChange"
             ></el-pagination>
 
             <div class="elx-foot">
@@ -287,7 +287,7 @@ export default {
       page: {
         current: 1,
         size: 15,
-        total: 0
+        totalRow: 0
       }
     }
   },
@@ -458,7 +458,7 @@ export default {
     loadListImage() {
       this.isLoading = true
       const param = {
-        pageNum: this.page.current ? this.page.current : 1,
+        pageNumber: this.page.current ? this.page.current : 1,
         pageSize: this.page.size,
         fileName: this.fileName ? this.fileName : null,
         fileGroupId: this.dataForm.attachFileGroupId || 0
@@ -622,7 +622,7 @@ export default {
      * 分页页面变化时刷新数据
      * @param page
      */
-    onPageNumChange(page) {
+    onpageNumberChange(page) {
       this.page.current = page
       this.loadListImage()
     },
@@ -652,7 +652,7 @@ export default {
      */
     httpRequest(event) {
       console.log('上传图片event:', event)
-      
+
       let file = event.file
       let typeArray = file.type.split('/')
       const attachFile = Object.assign({

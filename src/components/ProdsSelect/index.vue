@@ -36,7 +36,7 @@
     <div class="prods-select-body">
       <el-table
         ref="prodTable"
-        :data="pageVO.list"
+        :data="pageVO.records"
         border
         v-loading="dataListLoading"
         highlight-current-row
@@ -91,7 +91,7 @@
         ></el-table-column>
       </el-table>
       <!-- 分页条 -->
-    <pagination v-show="pageVO.total>0" :total="pageVO.total" :page.sync="pageQuery.pageNum" :limit.sync="pageQuery.pageSize" @pagination="getDataList()" />
+    <pagination v-show="pageVO.totalRow>0" :total="pageVO.totalRow" :page.sync="pageQuery.pageNumber" :limit.sync="pageQuery.pageSize" @pagination="getDataList()" />
     </div>
     <span slot="footer">
       <el-button @click="visible = false">取消</el-button>
@@ -115,14 +115,14 @@ export default {
       // 查询的参数
       pageQuery: {
         pageSize: 10,
-        pageNum: 1,
+        pageNumber: 1,
         spuStatus: 1
       },
       // 返回参数
       pageVO: {
-        list: [], // 返回的列表
-        total: 0, // 一共多少条数据
-        pages: 0 // 一共多少页
+        records: [], // 返回的列表
+        totalRow: 0, // 一共多少条数据
+        totalPage: 0 // 一共多少页
       },
       // 查询参数
       searchParam: {
@@ -191,15 +191,15 @@ export default {
     getDataList() {
       page({ ...this.pageQuery, ...this.searchParam }).then((pageVO) => {
         this.pageVO = pageVO
-        this.pageVO.list.forEach(prod => {
+        this.pageVO.records.forEach(prod => {
           prod.priceFee = new Big(prod.priceFee).div(100).toFixed(2)
         })
         this.dataListLoading = false
         if (this.selectProds) {
           this.$nextTick(() => {
             this.selectProds.forEach(row => {
-              let index = this.pageVO.list.findIndex((prodItem) => prodItem.spuId === row.spuId)
-              this.$refs.prodTable.toggleRowSelection(this.pageVO.list[index])
+              let index = this.pageVO.records.findIndex((prodItem) => prodItem.spuId === row.spuId)
+              this.$refs.prodTable.toggleRowSelection(this.pageVO.records[index])
             })
           })
         }
@@ -208,12 +208,12 @@ export default {
     // 每页数
     sizeChangeHandle(val) {
       this.pageQuery.pageSize = val
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       this.getDataList()
     },
     // 当前页
     currentChangeHandle(val) {
-      this.pageQuery.pageNum = val
+      this.pageQuery.pageNumber = val
       this.getDataList()
     },
     // 单选商品事件
@@ -222,7 +222,7 @@ export default {
     },
     // 多选点击事件
     selectChangeHandle(selection) {
-      this.pageVO.list.forEach((tableItem) => {
+      this.pageVO.records.forEach((tableItem) => {
         let selectedProdIndex = selection.findIndex((selectedProd) => {
           if (!selectedProd) {
             return false
@@ -247,7 +247,7 @@ export default {
      * 根据条件搜索商品
      */
     searchProd() {
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       this.searchParam = {
         name: this.dataForm.name,
         categoryId: this.shopCategoryId

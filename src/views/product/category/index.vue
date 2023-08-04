@@ -9,9 +9,9 @@
     <!-- 分类列表 -->
     <div class="category-list">
       <!-- 一级 -->
-      <div v-if="pageVO.list.length" :class="['addr-list-box', pageVO.list.length?'active':'']">
+      <div v-if="pageVO.records.length" :class="['addr-list-box', pageVO.records.length?'active':'']">
         <div class="addr-list">
-          <div v-for="(firstItem, index) in pageVO.list" :key="index" :class="['addr-item', firstItemId===firstItem.categoryId?'active':'']">
+          <div v-for="(firstItem, index) in pageVO.records" :key="index" :class="['addr-item', firstItemId===firstItem.categoryId?'active':'']">
             <div class="dot" @click="getSecondList(index)">{{ firstItem.name }}</div>
             <div class="btn">
               <div class="tag">
@@ -134,10 +134,10 @@
           </div>
         </div>
       </div>
-      <div v-if="!pageVO.list.length" class="nodata">暂无数据</div>
+      <div v-if="!pageVO.records.length" class="nodata">暂无数据</div>
     </div>
     <!-- 分页条 -->
-    <!-- <pagination v-show="pageVO.total>0" :total="pageVO.total" :page.sync="pageQuery.pageNum" :limit.sync="pageQuery.pageSize" @pagination="getPage()" /> -->
+    <!-- <pagination v-show="pageVO.totalRow>0" :total="pageVO.totalRow" :page.sync="pageQuery.pageNumber" :limit.sync="pageQuery.pageSize" @pagination="getPage()" /> -->
     <!-- 弹窗, 新增 / 修改 -->
     <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getPage()" />
   </div>
@@ -162,13 +162,13 @@ export default {
       // 查询的参数
       pageQuery: {
         pageSize: 10,
-        pageNum: 1
+        pageNumber: 1
       },
       // 返回参数
       pageVO: {
-        list: [] // 返回的列表
-        // total: 0, // 一共多少条数据
-        // pages: 0 // 一共多少页
+        records: [] // 返回的列表
+        // totalRow: 0, // 一共多少条数据
+        // totalPage: 0 // 一共多少页
       },
       secondList: [],
       threeList: [],
@@ -190,14 +190,14 @@ export default {
       this.pageLoading = true
       api.categoryPage({ ...this.pageQuery, ...this.searchParam }).then(pageVO => {
         this.secondList = this.threeList = []
-        this.pageVO.list = treeDataTranslate(pageVO, 'categoryId', 'parentId')
+        this.pageVO.records = treeDataTranslate(pageVO, 'categoryId', 'parentId')
         this.pageLoading = false
-        console.log('分类列表list:', this.pageVO.list)
+        console.log('分类列表list:', this.pageVO.records)
       })
     },
     getSecondList(idx) {
-      this.secondList = this.pageVO.list[idx].children ? this.pageVO.list[idx].children : []
-      this.firstItemId = this.pageVO.list[idx].categoryId
+      this.secondList = this.pageVO.records[idx].children ? this.pageVO.records[idx].children : []
+      this.firstItemId = this.pageVO.records[idx].categoryId
       this.threeList = []
     },
     getThreeList(idx) {

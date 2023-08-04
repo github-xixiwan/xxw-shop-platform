@@ -122,7 +122,7 @@
       <div ref="closepopover" class="table">
         <el-table
           ref="prodInfTable"
-          :data="pageVO.list"
+          :data="pageVO.records"
           :header-cell-style="{background:'#f9f9f9',color:'#606266'}"
           @selection-change="handleSelectionChange"
           @cell-mouse-enter="enterTableRow"
@@ -230,11 +230,11 @@
 
       <div class="page-number">
         <el-pagination
-          v-show="pageVO.total>0"
+          v-show="pageVO.totalRow>0"
           :page-sizes="[10, 20, 50, 100]"
-          :current-page="pageQuery.pageNum"
+          :current-page="pageQuery.pageNumber"
           :page-size="pageQuery.pageSize"
-          :total="pageVO.total"
+          :total="pageVO.totalRow"
           layout="total, sizes, prev, pager, next, jumper"
           background
           @size-change="sizeChangeHandle"
@@ -300,13 +300,13 @@ export default {
       },
       pageQuery: {
         pageSize: 10,
-        pageNum: 1
+        pageNumber: 1
       },
       // 返回参数
       pageVO: {
-        list: [], // 返回的列表
-        total: 0, // 一共多少条数据
-        pages: 0 // 一共多少页
+        records: [], // 返回的列表
+        totalRow: 0, // 一共多少条数据
+        totalPage: 0 // 一共多少页
       },
       // loading
       pageLoading: true,
@@ -325,7 +325,7 @@ export default {
   methods: {
     // 条件搜索
     conditionSearch() {
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       const minPrice = this.dataForm.currentPriceBeginInp ? this.dataForm.currentPriceBeginInp * 100 : undefined
       const maxPrice = this.dataForm.currentPriceEndInp ? this.dataForm.currentPriceEndInp * 100 : undefined
       this.searchParam = {
@@ -349,7 +349,7 @@ export default {
       this.pageLoading = true
       api.page({ ...this.pageQuery, ...this.searchParam }).then(pageVO => {
         this.pageVO = pageVO
-        this.pageVO.list.forEach(item => {
+        this.pageVO.records.forEach(item => {
           item.exhibitionProdName = item.name
           item.exhibitionSeq = item.seq
           item.priceFee = item.priceFee / 100
@@ -387,7 +387,7 @@ export default {
     switchProdList() {
       const dataType = parseInt(this.prodStatusRadio)
       this.checkAll = false
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       this.searchParam = {
         dataType
       }
@@ -404,8 +404,8 @@ export default {
     handleSelectionChange(value) {
       const checkedCount = value.length
       this.checkedCount = checkedCount
-      this.checkAll = checkedCount === this.pageVO.list.length
-      this.isIndeterminate = checkedCount > 0 && checkedCount < this.pageVO.list.length
+      this.checkAll = checkedCount === this.pageVO.records.length
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.pageVO.records.length
       // 提取出商品id列表
       const selectedProdList = []
       if (value.length > 0) {
@@ -429,7 +429,7 @@ export default {
     // createTime:创建时间
     conditionSort(column) {
       this.closePopover()
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       const orderMode = column.order === 'ascending' ? 1 : column.order === 'descending' ? 0 : undefined
       if (column.prop === 'priceFee') {
         this.searchParam = {
@@ -845,12 +845,12 @@ export default {
     // 每页数
     sizeChangeHandle(val) {
       this.pageQuery.pageSize = val
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       this.getDataList()
     },
     // 当前页
     currentChangeHandle(val) {
-      this.pageQuery.pageNum = val
+      this.pageQuery.pageNumber = val
       this.getDataList()
     }
   }

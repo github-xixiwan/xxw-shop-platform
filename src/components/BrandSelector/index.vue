@@ -18,7 +18,7 @@
     <div class="prods-select-body">
       <el-table
         ref="brandTable"
-        :data="pageVO.list"
+        :data="pageVO.records"
         border
         v-loading="brandListLoading"
         style="width: 100%;"
@@ -62,7 +62,7 @@
       </el-table>
 
       <!-- 分页条 -->
-      <pagination v-show="pageVO.total>0" :total="pageVO.total" :page.sync="pageQuery.pageNum" :limit.sync="pageQuery.pageSize" @pagination="getBrandList()" />
+      <pagination v-show="pageVO.totalRow>0" :total="pageVO.totalRow" :page.sync="pageQuery.pageNumber" :limit.sync="pageQuery.pageSize" @pagination="getBrandList()" />
     </div>
     <span slot="footer">
       <el-button type="primary" @click="visible = false">取消</el-button>
@@ -87,13 +87,13 @@ export default {
       resourcesUrl: process.env.VUE_APP_RESOURCES_URL,
       pageQuery: {
         pageSize: 5,
-        pageNum: 1
+        pageNumber: 1
       },
       // 返回参数
       pageVO: {
-        list: [], // 返回的列表
-        total: 0, // 一共多少条数据
-        pages: 0 // 一共多少页
+        records: [], // 返回的列表
+        totalRow: 0, // 一共多少条数据
+        totalPage: 0 // 一共多少页
       },
       brandListLoading: false,
 

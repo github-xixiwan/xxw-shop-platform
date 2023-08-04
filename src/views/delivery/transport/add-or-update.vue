@@ -404,7 +404,7 @@ export default {
       areaList: [],
       areaListDB: [],
       page: {
-        total: 0, // 总页数
+        totalRow: 0, // 总页数
         currentPage: 1, // 当前页数
         pageSize: 10 // 每页显示多少条
       },

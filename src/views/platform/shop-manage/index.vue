@@ -15,7 +15,7 @@
     <!-- 列表相关区域 -->
     <el-table
       v-loading="pageLoading"
-      :data="pageVO.list"
+      :data="pageVO.records"
       border
       stripe
       fit
@@ -82,7 +82,7 @@
       </el-table-column>
     </el-table>
     <!-- 分页条 -->
-    <pagination v-show="pageVO.total>0" :total="pageVO.total" :page.sync="pageQuery.pageNum" :limit.sync="pageQuery.pageSize" @pagination="getPage()" />
+    <pagination v-show="pageVO.totalRow>0" :total="pageVO.totalRow" :page.sync="pageQuery.pageNumber" :limit.sync="pageQuery.pageSize" @pagination="getPage()" />
     <!-- 弹窗, 新增 / 修改 -->
     <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getPage()" />
     <!-- 弹窗, 账号管理 -->
@@ -105,7 +105,7 @@ export default {
       // 查询的参数
       pageQuery: {
         pageSize: 10,
-        pageNum: 1
+        pageNumber: 1
       },
       searchParam: {
         shopName: '', // 店铺名称
@@ -113,9 +113,9 @@ export default {
       },
       // 返回参数
       pageVO: {
-        list: [], // 返回的列表
-        total: 0, // 一共多少条数据
-        pages: 0 // 一共多少页
+        records: [], // 返回的列表
+        totalRow: 0, // 一共多少条数据
+        totalPage: 0 // 一共多少页
       },
       // loading
       pageLoading: true,

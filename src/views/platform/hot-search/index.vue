@@ -26,7 +26,7 @@
     <!-- 列表相关区域 -->
     <el-table
       v-loading="pageLoading"
-      :data="pageVO.list"
+      :data="pageVO.records"
       border
       fit
       highlight-current-row
@@ -88,7 +88,7 @@
       </el-table-column>
     </el-table>
     <!-- 分页条 -->
-    <pagination v-show="pageVO.total>0" :total="pageVO.total" :page.sync="pageQuery.pageNum" :limit.sync="pageQuery.pageSize" @pagination="getPage()" />
+    <pagination v-show="pageVO.totalRow>0" :total="pageVO.totalRow" :page.sync="pageQuery.pageNumber" :limit.sync="pageQuery.pageSize" @pagination="getPage()" />
     <!-- 弹窗, 新增 / 修改 -->
     <add-or-update v-if="addOrUpdateVisible" ref="addOrUpdate" @refreshDataList="getPage()" />
   </div>
@@ -109,16 +109,16 @@ export default {
       // 查询的参数
       pageQuery: {
         pageSize: 10,
-        pageNum: 1,
+        pageNumber: 1,
         title: null,
         content: null,
         status: null
       },
       // 返回参数
       pageVO: {
-        list: [], // 返回的列表
-        total: 0, // 一共多少条数据
-        pages: 0 // 一共多少页
+        records: [], // 返回的列表
+        totalRow: 0, // 一共多少条数据
+        totalPage: 0 // 一共多少页
       },
       // loading
       pageLoading: true,
@@ -163,7 +163,7 @@ export default {
       })
     },
     getSearchList() {
-      this.pageQuery.pageNum = 1
+      this.pageQuery.pageNumber = 1
       // 若请求参数某项没值，则不传此参数
       this.pageQuery.title = this.pageQuery.title || null
       this.pageQuery.content = this.pageQuery.content || null
