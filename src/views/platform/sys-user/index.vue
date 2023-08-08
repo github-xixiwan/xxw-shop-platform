@@ -24,7 +24,7 @@
       <!-- 头像 -->
       <el-table-column :label="$t('platform.shopUser.avatar')" prop="avatar" align="center" width="100">
         <template slot-scope="{row}">
-          <el-image :src="row.avatar" fit="contain" />
+          <el-image :src="resourcesUrl + row.avatar" fit="contain" />
         </template>
       </el-table-column>
       <!-- 员工编号 -->
@@ -95,7 +95,8 @@ export default {
       searchParam: {
       },
       addOrUpdateVisible: false,
-      accountaddOrUpdateVisible: false
+      accountaddOrUpdateVisible: false,
+      resourcesUrl: process.env.VUE_APP_RESOURCES_URL
     }
   },
   mounted() {

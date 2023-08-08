@@ -13,7 +13,7 @@
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img :src="resourcesUrl+avatar" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -37,6 +37,11 @@ export default {
     Breadcrumb,
     Hamburger,
     LangSelect
+  },
+  data() {
+    return {
+      resourcesUrl: process.env.VUE_APP_RESOURCES_URL
+    }
   },
   computed: {
     ...mapGetters([
