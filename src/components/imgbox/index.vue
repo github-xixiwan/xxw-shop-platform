@@ -464,9 +464,9 @@ export default {
         fileGroupId: this.dataForm.attachFileGroupId || 0
       }
       page(param).then(response => {
-        this.imgRes = response.list
-        this.page.pages = response.pages
-        this.page.total = response.total
+        this.imgRes = response.records
+        this.page.pages = response.totalPage
+        this.page.total = response.totalRow
         this.isLoading = false
       })
     },
