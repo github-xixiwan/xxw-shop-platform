@@ -2,23 +2,23 @@
   <el-dialog :title="dataForm.brandId? $t('table.edit'): $t('table.create')" :close-on-click-modal="false" :visible.sync="visible" class="brand-add-upd" width="800px" @close="closeDialog">
     <el-form ref="dataForm" :rules="rules" :model="dataForm" label-position="left" label-width="90px" style="width:620px;margin-left:50px;">
       <!-- 品牌名称 -->
-      <el-form-item :label="$t('product.brand.name')" prop="name">
+      <el-form-item :label="$t('goods.brand.name')" prop="name">
         <el-input v-model="dataForm.name" placeholder="请输入品牌名称" />
       </el-form-item>
       <!-- 品牌描述 -->
-      <el-form-item :label="$t('product.brand.desc')" prop="desc">
+      <el-form-item :label="$t('goods.brand.desc')" prop="desc">
         <el-input v-model="dataForm.desc" type="textarea" :rows="2" maxlength="30" show-word-limit placeholder="请输入品牌描述" />
       </el-form-item>
       <!-- 品牌logo图片 -->
-      <el-form-item :label="$t('product.brand.imgUrl')" prop="imgUrl">
+      <el-form-item :label="$t('goods.brand.imgUrl')" prop="imgUrl">
         <img-upload v-model="dataForm.imgUrl" />
       </el-form-item>
       <!-- 检索首字母 -->
-      <el-form-item :label="$t('product.brand.firstLetter')" prop="firstLetter">
+      <el-form-item :label="$t('goods.brand.firstLetter')" prop="firstLetter">
         <el-input v-model="dataForm.firstLetter" placeholder="请输入首字母" />
       </el-form-item>
       <!-- 选择分类 -->
-      <el-form-item :label="this.$i18n.t('product.category.categoryParent')">
+      <el-form-item :label="this.$i18n.t('goods.category.categoryParent')">
         <category-group
           :selected-categories="selectedCategories"
           :multiple="true"
@@ -27,7 +27,7 @@
         />
       </el-form-item>
       <!-- 排序 -->
-      <el-form-item :label="$t('product.brand.seq')" prop="seq">
+      <el-form-item :label="$t('goods.brand.seq')" prop="seq">
         <el-input-number
           v-model="dataForm.seq"
           controls-position="right"
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import * as api from '@/api/product/brand'
+import * as api from '@/api/goods/brand'
 import ImgUpload from '@/components/ImgUpload'
 import categorySelector from '@/components/CategorySelector'
 import categoryGroup from '@/components/CategoryGroup'

@@ -1,9 +1,9 @@
 export default {
   categorySelector: 'Category selector',
-  chooseProdCateg: 'Select product category',
+  chooseProdCateg: 'Select goods category',
   currCho: 'Your current choice is',
-  isItAComtionPro: 'Is it a combination product ',
+  isItAComtionPro: 'Is it a combination goods ',
   generalMerchandise: 'General Product',
-  combinationGoods: 'Combined product',
+  combinationGoods: 'Combined goods',
   haveReadFol: 'Confirm selection'
 }

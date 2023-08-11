@@ -2,25 +2,25 @@ import request from '@/utils/request'
 
 export function page(pageParam) {
   return request({
-    url: '/xxw_shop_product/admin/attr/page',
+    url: '/xxw_shop_goods/m/spu_detail/page',
     method: 'get',
     params: pageParam
   })
 }
 
-export function get(attrId) {
+export function get(spuId) {
   return request({
-    url: '/xxw_shop_product/admin/attr',
+    url: '/xxw_shop_goods/m/spu_detail',
     method: 'get',
     params: {
-      attrId
+      spuId
     }
   })
 }
 
 export function save(data) {
   return request({
-    url: '/xxw_shop_product/admin/attr',
+    url: '/xxw_shop_goods/m/spu_detail',
     method: 'post',
     data
   })
@@ -28,18 +28,18 @@ export function save(data) {
 
 export function update(data) {
   return request({
-    url: '/xxw_shop_product/admin/attr',
+    url: '/xxw_shop_goods/m/spu_detail',
     method: 'put',
     data
   })
 }
 
-export function deleteById(attrId) {
+export function deleteById(spuId) {
   return request({
-    url: '/xxw_shop_product/admin/attr',
+    url: '/xxw_shop_goods/m/spu_detail',
     method: 'delete',
     params: {
-      attrId
+      spuId
     }
   })
 }

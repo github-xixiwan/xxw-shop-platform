@@ -1,8 +1,8 @@
 <template>
   <div class="category-selector">
-    <el-dialog 
-        :title="this.$i18n.t('components.selector.categorySelector')" 
-        :visible.sync="visible" 
+    <el-dialog
+        :title="this.$i18n.t('components.selector.categorySelector')"
+        :visible.sync="visible"
         :append-to-body="visible"
         width="1000px">
       <div class="prod-category clearfix">
@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import * as api from '@/api/product/category'
+import * as api from '@/api/goods/category'
 export default {
   data() {
     return {

@@ -33,7 +33,7 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [
-  { path: '/', redirect: '/product/list' },
+  { path: '/', redirect: '/goods/list' },
   {
     path: '/redirect',
     component: Layout,

@@ -247,8 +247,8 @@
 </template>
 
 <script>
-import * as api from '@/api/product/list'
-import * as categoryApi from '@/api/product/category'
+import * as api from '@/api/goods/list'
+import * as categoryApi from '@/api/goods/category'
 import { treeDataTranslate } from '@/utils'
 import prodDetails from './prod-details.vue'
 import Big from 'big.js'

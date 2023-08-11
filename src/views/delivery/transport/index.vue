@@ -85,14 +85,14 @@
       >
         <template slot-scope="{ row }">
           <el-button
-            v-permission="['product:attr:update']"
+            v-permission="['goods:attr:update']"
             type="text"
             @click="addOrUpdateHandle(row.transportId)"
           >
             {{ $t("table.edit") }}
           </el-button>
           <el-button
-            v-permission="['product:attr:delete']"
+            v-permission="['goods:attr:delete']"
             type="text"
             @click="deleteHandle(row.transportId)"
           >

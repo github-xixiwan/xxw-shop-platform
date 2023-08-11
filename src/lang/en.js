@@ -1,8 +1,8 @@
-import spu from './product/spu/en'
-import attr from './product/attr/en'
+import spu from './goods/spu/en'
+import attr from './goods/attr/en'
 import score from './user/score/en'
-import brand from './product/brand/en'
-import category from './product/category/en'
+import brand from './goods/brand/en'
+import category from './goods/category/en'
 import shopUser from './platform/sys-user/en'
 import hotSearch from './platform/hot-search/en'
 import imgbox from './biz/imgbox/en'
@@ -75,7 +75,7 @@ export default {
     hotSearch,
     shopUserAccount
   },
-  product: {
+  goods: {
     attr,
     brand,
     category,

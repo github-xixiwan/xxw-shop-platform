@@ -17,7 +17,7 @@
         </el-form-item>
       </el-form>
       <!-- <el-button size="mini" icon="el-icon-search" class="filter-item" @click="getPage()">{{ $t('table.search') }}</el-button> -->
-      <el-button v-permission="['product:attr:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
+      <el-button v-permission="['goods:attr:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
     </div>
 
     <!-- 列表相关区域 -->
@@ -42,35 +42,35 @@
         </template>
       </el-table-column>
       <!-- 属性名称 -->
-      <el-table-column :label="$t('product.attr.name')" prop="name" align="center">
+      <el-table-column :label="$t('goods.attr.name')" prop="name" align="center">
         <template slot-scope="{row}">
           <span>{{ row.name }}</span>
         </template>
       </el-table-column>
       <!-- 属性描述 -->
-      <!-- <el-table-column :label="$t('product.attr.desc')" prop="desc" align="center">
+      <!-- <el-table-column :label="$t('goods.attr.desc')" prop="desc" align="center">
         <template slot-scope="{row}">
           <span>{{ row.desc }}</span>
         </template>
       </el-table-column> -->
       <!-- 0:不需要，1:需要 -->
-      <el-table-column :label="$t('product.attr.searchType')" prop="searchType" align="center">
+      <el-table-column :label="$t('goods.attr.searchType')" prop="searchType" align="center">
         <template slot-scope="{row}">
           <span>{{ ['否', '是'][row.searchType] }}</span>
         </template>
       </el-table-column>
       <!-- 0:销售属性，1:基本属性 -->
-      <el-table-column :label="$t('product.attr.attrType')" prop="attrType" align="center">
+      <el-table-column :label="$t('goods.attr.attrType')" prop="attrType" align="center">
         <template slot-scope="{row}">
           <span>{{ ['销售属性', '基本属性'][row.attrType] }}</span>
         </template>
       </el-table-column>
       <el-table-column :label="$t('table.actions')" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <el-button v-permission="['product:attr:update']" type="text" @click="addOrUpdateHandle(row.attrId)">
+          <el-button v-permission="['goods:attr:update']" type="text" @click="addOrUpdateHandle(row.attrId)">
             {{ $t('table.edit') }}
           </el-button>
-          <el-button v-permission="['product:attr:delete']" type="text" @click="deleteHandle(row.attrId)">
+          <el-button v-permission="['goods:attr:delete']" type="text" @click="deleteHandle(row.attrId)">
             {{ $t('table.delete') }}
           </el-button>
         </template>
@@ -87,7 +87,7 @@
 import permission from '@/directive/permission/index.js'
 import Pagination from '@/components/Pagination'
 import AddOrUpdate from './add-or-update.vue'
-import * as api from '@/api/product/attr'
+import * as api from '@/api/goods/attr'
 
 export default {
   name: '',

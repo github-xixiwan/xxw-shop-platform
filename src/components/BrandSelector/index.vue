@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { page } from '@/api/product/brand'
+import { page } from '@/api/goods/brand'
 import Pagination from '@/components/Pagination'
 export default {
   components: { Pagination },

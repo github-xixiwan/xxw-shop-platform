@@ -28,7 +28,7 @@
         </template>
       </el-table-column>
       <!-- 商品详情 -->
-      <el-table-column :label="$t('product.spuDetail.detail')" prop="detail" align="center">
+      <el-table-column :label="$t('goods.spuDetail.detail')" prop="detail" align="center">
         <template slot-scope="{row}">
           <span>{{ row.detail }}</span>
         </template>
@@ -54,7 +54,7 @@
 <script>
 import Pagination from '@/components/Pagination'
 import AddOrUpdate from './add-or-update.vue'
-import * as api from '@/api/product/spu-detail'
+import * as api from '@/api/goods/spu-detail'
 
 export default {
   name: '',

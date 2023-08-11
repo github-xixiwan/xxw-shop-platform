@@ -102,8 +102,8 @@
 
 <script>
 import { treeDataTranslate, idList } from '@/utils'
-import { page } from '@/api/product/list'
-import { categoryPage } from '@/api/product/category'
+import { page } from '@/api/goods/list'
+import { categoryPage } from '@/api/goods/category'
 import Pagination from '@/components/Pagination'
 import Big from 'big.js'
 export default {
@@ -130,7 +130,7 @@ export default {
 
       dataForm: {
         name: '',
-        product: ''
+        goods: ''
       },
       singleSelectspuId: 0,
       allData: [],

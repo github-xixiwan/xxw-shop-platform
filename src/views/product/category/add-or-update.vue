@@ -2,20 +2,20 @@
   <el-dialog :title="dataForm.categoryId? $t('table.edit'): $t('table.create')" :close-on-click-modal="false" :visible.sync="visible" top="10vh" width="750px" @close="closeDialog">
     <el-form ref="dataForm" :rules="rules" :model="dataForm" label-position="left" label-width="90px" class="category-form" style="width: 500px; margin-left:50px;">
       <!-- 分类名称 -->
-      <el-form-item :label="$t('product.category.name')" prop="name">
-        <el-input v-model="dataForm.name" :placeholder="$t('product.category.enterCateName')" maxlength="255" />
+      <el-form-item :label="$t('goods.category.name')" prop="name">
+        <el-input v-model="dataForm.name" :placeholder="$t('goods.category.enterCateName')" maxlength="255" />
       </el-form-item>
       <!-- 分类图片 -->
-      <el-form-item :label="$t('product.category.imgUrl')" prop="imgUrl">
+      <el-form-item :label="$t('goods.category.imgUrl')" prop="imgUrl">
         <img-upload v-model="dataForm.imgUrl" />
-        <span v-if="dataForm.parentId === 0">{{ this.$i18n.t('product.category.recommImgSize') + '510*80' }}</span>
+        <span v-if="dataForm.parentId === 0">{{ this.$i18n.t('goods.category.recommImgSize') + '510*80' }}</span>
       </el-form-item>
       <!-- 分类图标 -->
-      <el-form-item :label="$t('product.category.icon')" prop="icon">
+      <el-form-item :label="$t('goods.category.icon')" prop="icon">
         <img-upload v-model="dataForm.icon" />
       </el-form-item>
       <!-- 上级分类 -->
-      <el-form-item v-if="showSelectColumnOfCategory" :label="this.$i18n.t('product.category.categoryParent')">
+      <el-form-item v-if="showSelectColumnOfCategory" :label="this.$i18n.t('goods.category.categoryParent')">
         <category-group
           :selected-categories="selectedCategories"
           :show-category-select-btn="showCategorySelectBtn"
@@ -24,7 +24,7 @@
         />
       </el-form-item>
       <!-- 排序 -->
-      <el-form-item :label="$t('product.category.seq')" prop="seq">
+      <el-form-item :label="$t('goods.category.seq')" prop="seq">
         <el-input-number
           v-model="dataForm.seq"
           :min="0"
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import * as api from '@/api/product/category'
+import * as api from '@/api/goods/category'
 import ImgUpload from '@/components/ImgUpload'
 import categorySelector from '@/components/CategorySelector'
 import categoryGroup from '@/components/CategoryGroup'
@@ -80,10 +80,10 @@ export default {
       showSelectColumnOfCategory: true, // 是否显示上级分类栏
       rules: {
         name: [
-          { required: true, message: this.$i18n.t('product.category.categoryNoNull'), trigger: 'blur' }
+          { required: true, message: this.$i18n.t('goods.category.categoryNoNull'), trigger: 'blur' }
         ],
         imgUrl: [
-          { required: true, message: this.$i18n.t('product.category.imageNoNull'), trigger: 'blur' }
+          { required: true, message: this.$i18n.t('goods.category.imageNoNull'), trigger: 'blur' }
         ]
       }
     }

@@ -2,7 +2,7 @@
   <el-dialog :title="dataForm.spuId? $t('table.edit'): $t('table.create')" :visible.sync="visible">
     <el-form ref="dataForm" :rules="rules" :model="dataForm" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
       <!-- 商品详情 -->
-      <el-form-item :label="$t('product.spuDetail.detail')" prop="detail">
+      <el-form-item :label="$t('goods.spuDetail.detail')" prop="detail">
         <el-input v-model="dataForm.detail" />
       </el-form-item>
     </el-form>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import * as api from '@/api/product/spu-detail'
+import * as api from '@/api/goods/spu-detail'
 
 export default {
   data() {

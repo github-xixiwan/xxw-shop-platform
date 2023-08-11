@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function page(pageParam) {
   return request({
-    url: '/xxw_shop_product/m/spu/page',
+    url: '/xxw_shop_goods/m/spu/page',
     method: 'get',
     params: pageParam
   })
@@ -10,7 +10,7 @@ export function page(pageParam) {
 
 export function getProdInfoPage(spuId) {
   return request({
-    url: '/xxw_shop_product/admin/spu',
+    url: '/xxw_shop_goods/admin/spu',
     method: 'get',
     params: {
       spuId
@@ -20,7 +20,7 @@ export function getProdInfoPage(spuId) {
 
 export function deleteById(spuId) {
   return request({
-    url: '/xxw_shop_product/m/spu',
+    url: '/xxw_shop_goods/m/spu',
     method: 'delete',
     params: {
       spuId
@@ -30,7 +30,7 @@ export function deleteById(spuId) {
 
 export function getAttrsByCategoryId(param) {
   return request({
-    url: '/xxw_shop_product/admin/attr/get_attrs_by_category_id',
+    url: '/xxw_shop_goods/admin/attr/get_attrs_by_category_id',
     method: 'get',
     params: param
   })

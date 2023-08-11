@@ -3,7 +3,7 @@
     <!-- 搜索相关区域 -->
     <div class="filter-container">
       <!-- <el-button size="mini" icon="el-icon-search" class="filter-item" @click="getPage()">{{ $t('table.search') }}</el-button> -->
-      <el-button v-permission="['product:category:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
+      <el-button v-permission="['goods:category:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
     </div>
 
     <!-- 分类列表 -->
@@ -19,7 +19,7 @@
                 <el-tag v-else size="small">正常</el-tag>
               </div>
               <el-button
-                v-permission="['product:category:update']"
+                v-permission="['goods:category:update']"
                 type="text"
                 icon="el-icon-edit"
                 size="small"
@@ -40,7 +40,7 @@
                 @click="enableOrDisable(firstItem.categoryId, firstItem.status, index)"
               >{{ $t('action.offShelf') }}</el-button>
               <el-button
-                v-permission="['product:category:delete']"
+                v-permission="['goods:category:delete']"
                 type="text"
                 icon="el-icon-delete"
                 size="small"
@@ -61,7 +61,7 @@
                 <el-tag v-else size="small">正常</el-tag>
               </div>
               <el-button
-                v-permission="['product:category:update']"
+                v-permission="['goods:category:update']"
                 type="text"
                 icon="el-icon-edit"
                 size="small"
@@ -82,7 +82,7 @@
                 @click="enableOrDisable(secondItem.categoryId, secondItem.status, secondIdx)"
               >{{ $t('action.offShelf') }}</el-button>
               <el-button
-                v-permission="['product:category:delete']"
+                v-permission="['goods:category:delete']"
                 type="text"
                 icon="el-icon-delete"
                 size="small"
@@ -103,7 +103,7 @@
                 <el-tag v-else size="small">正常</el-tag>
               </div>
               <el-button
-                v-permission="['product:category:update']"
+                v-permission="['goods:category:update']"
                 type="text"
                 icon="el-icon-edit"
                 size="small"
@@ -124,7 +124,7 @@
                 @click="enableOrDisable(threeItem.categoryId, threeItem.status, threeIdx)"
               >{{ $t('action.offShelf') }}</el-button>
               <el-button
-                v-permission="['product:category:delete']"
+                v-permission="['goods:category:delete']"
                 type="text"
                 icon="el-icon-delete"
                 size="small"
@@ -147,7 +147,7 @@
 import permission from '@/directive/permission/index.js'
 // import Pagination from '@/components/Pagination'
 import AddOrUpdate from './add-or-update.vue'
-import * as api from '@/api/product/category'
+import * as api from '@/api/goods/category'
 import { treeDataTranslate } from '@/utils'
 export default {
   name: '',

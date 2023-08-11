@@ -2,7 +2,7 @@
   <el-dialog :title="dataForm.spuId? $t('table.edit'): $t('table.create')" :visible.sync="visible">
     <el-form ref="dataForm" :rules="rules" :model="dataForm" label-position="left" label-width="70px" style="width: 400px; margin-left:50px;">
       <!-- 品牌ID -->
-      <el-form-item :label="$t('product.spu.brandId')" prop="brandId">
+      <el-form-item :label="$t('goods.spu.brandId')" prop="brandId">
         <el-input-number
           v-model="dataForm.brandId"
           controls-position="right"
@@ -10,7 +10,7 @@
         />
       </el-form-item>
       <!-- 分类ID -->
-      <el-form-item :label="$t('product.spu.categoryId')" prop="categoryId">
+      <el-form-item :label="$t('goods.spu.categoryId')" prop="categoryId">
         <el-input-number
           v-model="dataForm.categoryId"
           controls-position="right"
@@ -18,19 +18,19 @@
         />
       </el-form-item>
       <!-- spu名称 -->
-      <el-form-item :label="$t('product.spu.name')" prop="name">
+      <el-form-item :label="$t('goods.spu.name')" prop="name">
         <el-input v-model="dataForm.name" />
       </el-form-item>
       <!-- 卖点 -->
-      <el-form-item :label="$t('product.spu.sellingPoint')" prop="sellingPoint">
+      <el-form-item :label="$t('goods.spu.sellingPoint')" prop="sellingPoint">
         <el-input v-model="dataForm.sellingPoint" />
       </el-form-item>
       <!-- 商品介绍主图 多个图片逗号分隔 -->
-      <el-form-item :label="$t('product.spu.imgUrls')" prop="imgUrls">
+      <el-form-item :label="$t('goods.spu.imgUrls')" prop="imgUrls">
         <el-input v-model="dataForm.imgUrls" />
       </el-form-item>
       <!-- 售价，整数方式保存 -->
-      <el-form-item :label="$t('product.spu.priceFee')" prop="priceFee">
+      <el-form-item :label="$t('goods.spu.priceFee')" prop="priceFee">
         <el-input-number
           v-model="dataForm.priceFee"
           controls-position="right"
@@ -38,7 +38,7 @@
         />
       </el-form-item>
       <!-- 售价，金额对应的小数位数 -->
-      <el-form-item :label="$t('product.spu.priceScale')" prop="priceScale">
+      <el-form-item :label="$t('goods.spu.priceScale')" prop="priceScale">
         <el-input-number
           v-model="dataForm.priceScale"
           controls-position="right"
@@ -46,7 +46,7 @@
         />
       </el-form-item>
       <!-- 市场价，整数方式保存 -->
-      <el-form-item :label="$t('product.spu.marketPriceFee')" prop="marketPriceFee">
+      <el-form-item :label="$t('goods.spu.marketPriceFee')" prop="marketPriceFee">
         <el-input-number
           v-model="dataForm.marketPriceFee"
           controls-position="right"
@@ -54,7 +54,7 @@
         />
       </el-form-item>
       <!-- 市场价，金额对应的小数位数 -->
-      <el-form-item :label="$t('product.spu.marketPriceScale')" prop="marketPriceScale">
+      <el-form-item :label="$t('goods.spu.marketPriceScale')" prop="marketPriceScale">
         <el-input-number
           v-model="dataForm.marketPriceScale"
           controls-position="right"
@@ -62,7 +62,7 @@
         />
       </el-form-item>
       <!-- 状态 1:enable, 0:disable, -1:deleted -->
-      <el-form-item :label="$t('product.spu.status')" prop="status">
+      <el-form-item :label="$t('goods.spu.status')" prop="status">
         <el-input-number
           v-model="dataForm.status"
           controls-position="right"
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import * as api from '@/api/product/spu'
+import * as api from '@/api/goods/spu'
 
 export default {
   data() {

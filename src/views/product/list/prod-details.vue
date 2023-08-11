@@ -128,7 +128,7 @@
           <div class="part-content">
             <div class="part-tit"><span class="part-tit-num">3</span><span class="part-tit-name">商品详情</span></div>
             <div class="part-form-info">
-              <product-details :data-form="dataForm" :detail="detail" />
+              <goods-details :data-form="dataForm" :detail="detail" />
             </div>
           </div>
 
@@ -144,13 +144,13 @@
 
 <script>
 // import { run } from 'runjs'
-import * as api from '@/api/product/prod-info'
+import * as api from '@/api/goods/prod-info'
 import { treeDataTranslate, idList, formatHtml } from '@/utils'
-import { categoryPage } from '@/api/product/category'
+import { categoryPage } from '@/api/goods/category'
 import skuBlock from '@/components/Sku/SkuBlock'
 import skuTable from '@/components/Sku/SkuTable'
 import spuCategoryAttrs from '@/components/SpuCategoryAttrs'
-import productDetails from '@/components/ProductDetails'
+import goodsDetails from '@/components/GoodsDetails'
 import categoryGroup from '@/components/CategoryGroup'
 import picturePreview from '@/components/PicturePreview'
 import Big from 'big.js'
@@ -163,7 +163,7 @@ export default {
     skuBlock,
     skuTable,
     spuCategoryAttrs,
-    productDetails,
+    goodsDetails,
     categoryGroup,
     picturePreview
   },

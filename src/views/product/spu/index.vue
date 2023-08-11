@@ -28,52 +28,52 @@
         </template>
       </el-table-column>
       <!-- 品牌ID -->
-      <el-table-column :label="$t('product.spu.brandId')" prop="brandId" align="center">
+      <el-table-column :label="$t('goods.spu.brandId')" prop="brandId" align="center">
         <template slot-scope="{row}">
           <span>{{ row.brandId }}</span>
         </template>
       </el-table-column>
       <!-- 分类ID -->
-      <el-table-column :label="$t('product.spu.categoryId')" prop="categoryId" align="center">
+      <el-table-column :label="$t('goods.spu.categoryId')" prop="categoryId" align="center">
         <template slot-scope="{row}">
           <span>{{ row.categoryId }}</span>
         </template>
       </el-table-column>
       <!-- spu名称 -->
-      <el-table-column :label="$t('product.spu.name')" prop="name" align="center">
+      <el-table-column :label="$t('goods.spu.name')" prop="name" align="center">
         <template slot-scope="{row}">
           <span>{{ row.name }}</span>
         </template>
       </el-table-column>
       <!-- 卖点 -->
-      <el-table-column :label="$t('product.spu.sellingPoint')" prop="sellingPoint" align="center">
+      <el-table-column :label="$t('goods.spu.sellingPoint')" prop="sellingPoint" align="center">
         <template slot-scope="{row}">
           <span>{{ row.sellingPoint }}</span>
         </template>
       </el-table-column>
       <!-- 商品介绍主图 多个图片逗号分隔 -->
-      <el-table-column :label="$t('product.spu.imgUrls')" prop="imgUrls" align="center">
+      <el-table-column :label="$t('goods.spu.imgUrls')" prop="imgUrls" align="center">
         <template slot-scope="{row}">
           <img :src="(row.imgUrls).indexOf('http')===-1 ? resourcesUrl + row.imgUrls : row.imgUrls">
         </template>
       </el-table-column>
       <!-- 售价，整数方式保存 -->
-      <el-table-column :label="$t('product.spu.priceFee')" prop="priceFee" align="center">
+      <el-table-column :label="$t('goods.spu.priceFee')" prop="priceFee" align="center">
         <template slot-scope="{row}">
           <span>{{ row.priceFee }}</span>
         </template>
       </el-table-column>
       <!-- 市场价，整数方式保存 -->
-      <el-table-column :label="$t('product.spu.marketPriceFee')" prop="marketPriceFee" align="center">
+      <el-table-column :label="$t('goods.spu.marketPriceFee')" prop="marketPriceFee" align="center">
         <template slot-scope="{row}">
           <span>{{ row.marketPriceFee }}</span>
         </template>
       </el-table-column>
       <!-- 状态 1:enable, 0:disable, -1:deleted -->
-      <el-table-column :label="$t('product.spu.status')" prop="status" align="center">
+      <el-table-column :label="$t('goods.spu.status')" prop="status" align="center">
         <template slot-scope="{row}">
-          <el-tag v-if="row.status === 0" size="small" type="danger">{{ $t("product.category.offline") }}</el-tag>
-          <el-tag v-else size="small">{{ $t("product.category.normal") }}</el-tag>
+          <el-tag v-if="row.status === 0" size="small" type="danger">{{ $t("goods.category.offline") }}</el-tag>
+          <el-tag v-else size="small">{{ $t("goods.category.normal") }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column :label="$t('table.actions')" align="center" width="230" class-name="small-padding fixed-width">
@@ -113,7 +113,7 @@
 <script>
 import Pagination from '@/components/Pagination'
 import AddOrUpdate from './add-or-update.vue'
-import * as api from '@/api/product/spu'
+import * as api from '@/api/goods/spu'
 
 export default {
   name: '',
@@ -157,7 +157,7 @@ export default {
       //   this.$refs.addOrUpdate.init(spuId)
       // })
       // this.$router.push('/prodInfo')
-      this.$router.push('@/views/product/prod-info/index')
+      this.$router.push('@/views/goods/prod-info/index')
     },
     deleteHandle(spuId) {
       this.$confirm(this.$t('table.sureToDelete'), this.$t('table.tips'), {

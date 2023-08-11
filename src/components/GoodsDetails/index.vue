@@ -63,7 +63,7 @@
             />
           </el-col>
         </el-form-item>
-        <el-form-item label="product details" prop="contentEn">
+        <el-form-item label="goods details" prop="contentEn">
           <tiny-mce
             ref="content"
             v-model="dataForm.contentEn"

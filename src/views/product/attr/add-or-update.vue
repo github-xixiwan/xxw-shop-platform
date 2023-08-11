@@ -3,20 +3,20 @@
     <el-dialog :title="dataForm.attrId? $t('table.edit'): $t('table.create')" :close-on-click-modal="false" top="8vh" :destroy-on-close="true" :visible.sync="visible" width="750px" @close="closeDialog">
       <el-form ref="dataForm" :rules="rules" :model="dataForm" label-position="left" label-width="80px" style="min-width: 600px; width: 600px; margin-left:35px;">
         <!-- 属性名称 -->
-        <el-form-item :label="$t('product.attr.name')" prop="name">
+        <el-form-item :label="$t('goods.attr.name')" prop="name">
           <el-input v-model="dataForm.name" maxlength="20" show-word-limit placeholder="请输入属性名称" />
         </el-form-item>
         <!-- 属性描述 -->
-        <el-form-item :label="$t('product.attr.desc')" prop="desc">
+        <el-form-item :label="$t('goods.attr.desc')" prop="desc">
           <el-input v-model="dataForm.desc" type="textarea" :rows="2" maxlength="30" show-word-limit placeholder="请输入新增属性的相关描述，30字以内" />
         </el-form-item>
         <!-- 是否需要搜索 -->
-        <el-form-item v-if="dataForm.attrType === 1" :label="$t('product.attr.searchType')" prop="searchType">
+        <el-form-item v-if="dataForm.attrType === 1" :label="$t('goods.attr.searchType')" prop="searchType">
           <el-radio v-model="dataForm.searchType" :label="0">不需要</el-radio>
           <el-radio v-model="dataForm.searchType" :label="1">需要</el-radio>
         </el-form-item>
         <!-- 选择分类 -->
-        <el-form-item v-if="dataForm.attrType === 1" :label="this.$i18n.t('product.category.categoryParent')">
+        <el-form-item v-if="dataForm.attrType === 1" :label="this.$i18n.t('goods.category.categoryParent')">
           <category-group
             :selected-categories="selectedCategories"
             :multiple="true"
@@ -25,7 +25,7 @@
           />
         </el-form-item>
         <!-- 属性值 -->
-        <el-form-item :label="$t('product.attr.attrValue')" prop="attrValues">
+        <el-form-item :label="$t('goods.attr.attrValue')" prop="attrValues">
           <div class="attr-int">
             <el-input v-model="attrValue" clearable maxlength="20" show-word-limit placeholder="请输入要添加的属性值，20字以内" />
             <el-button icon="el-icon-plus" class="add-btn" @click="addAttrValue(attrValue)">添加</el-button>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import * as api from '@/api/product/attr'
+import * as api from '@/api/goods/attr'
 import categorySelector from '@/components/CategorySelector'
 import categoryGroup from '@/components/CategoryGroup'
 export default {

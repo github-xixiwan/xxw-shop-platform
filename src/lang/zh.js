@@ -1,7 +1,7 @@
-import spu from './product/spu/zh'
-import attr from './product/attr/zh'
-import brand from './product/brand/zh'
-import category from './product/category/zh'
+import spu from './goods/spu/zh'
+import attr from './goods/attr/zh'
+import brand from './goods/brand/zh'
+import category from './goods/category/zh'
 import shopUser from './platform/sys-user/zh'
 import hotSearch from './platform/hot-search/zh'
 import imgbox from './biz/imgbox/zh'
@@ -79,7 +79,7 @@ export default {
     shopUserAccount,
     notice
   },
-  product: {
+  goods: {
     attr,
     brand,
     category,

@@ -3,7 +3,7 @@
     <!-- 搜索相关区域 -->
     <div class="filter-container">
       <!-- <el-button size="mini" icon="el-icon-search" class="filter-item" @click="getPage()">{{ $t('table.search') }}</el-button> -->
-      <el-button v-permission="['product:brand:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
+      <el-button v-permission="['goods:brand:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
     </div>
 
     <!-- 列表相关区域 -->
@@ -28,45 +28,45 @@
         </template>
       </el-table-column>
       <!-- 品牌名称 -->
-      <el-table-column :label="$t('product.brand.name')" prop="name" align="center">
+      <el-table-column :label="$t('goods.brand.name')" prop="name" align="center">
         <template slot-scope="{row}">
           <span>{{ row.name }}</span>
         </template>
       </el-table-column>
       <!-- 品牌描述 -->
-      <el-table-column :label="$t('product.brand.desc')" prop="desc" align="center">
+      <el-table-column :label="$t('goods.brand.desc')" prop="desc" align="center">
         <template slot-scope="{row}">
           <span>{{ row.desc }}</span>
         </template>
       </el-table-column>
       <!-- 品牌logo图片 -->
-      <el-table-column :label="$t('product.brand.imgUrl')" prop="imgUrl" align="center" width="200">
+      <el-table-column :label="$t('goods.brand.imgUrl')" prop="imgUrl" align="center" width="200">
         <template slot-scope="{row}">
           <img :src="(row.imgUrl).indexOf('http')===-1 ? resourcesUrl + row.imgUrl : row.imgUrl" class="brand-logo-img">
         </template>
       </el-table-column>
       <!-- 检索首字母 -->
-      <el-table-column :label="$t('product.brand.firstLetter')" prop="firstLetter" align="center" width="100">
+      <el-table-column :label="$t('goods.brand.firstLetter')" prop="firstLetter" align="center" width="100">
         <template slot-scope="{row}">
           <span>{{ row.firstLetter }}</span>
         </template>
       </el-table-column>
       <!-- 排序 -->
-      <el-table-column :label="$t('product.brand.seq')" prop="seq" align="center" width="100">
+      <el-table-column :label="$t('goods.brand.seq')" prop="seq" align="center" width="100">
         <template slot-scope="{row}">
           <span>{{ row.seq }}</span>
         </template>
       </el-table-column>
       <!-- 状态 1:enable, 0:disable, -1:deleted -->
-      <el-table-column :label="$t('product.brand.status')" prop="status" align="center" width="150">
+      <el-table-column :label="$t('goods.brand.status')" prop="status" align="center" width="150">
         <template slot-scope="{row}">
-          <el-tag v-if="row.status === 0" size="small" type="danger">{{ $t("product.category.offline") }}</el-tag>
-          <el-tag v-else size="small">{{ $t("product.category.normal") }}</el-tag>
+          <el-tag v-if="row.status === 0" size="small" type="danger">{{ $t("goods.category.offline") }}</el-tag>
+          <el-tag v-else size="small">{{ $t("goods.category.normal") }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column :label="$t('table.actions')" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <el-button v-permission="['product:brand:update']" type="text" @click="addOrUpdateHandle(row.brandId)">
+          <el-button v-permission="['goods:brand:update']" type="text" @click="addOrUpdateHandle(row.brandId)">
             {{ $t('table.edit') }}
           </el-button>
           <el-button
@@ -85,7 +85,7 @@
             <!-- 下架 -->
             {{ $t('action.offShelf') }}
           </el-button>
-          <el-button v-permission="['product:brand:delete']" type="text" @click="deleteHandle(row.brandId)">
+          <el-button v-permission="['goods:brand:delete']" type="text" @click="deleteHandle(row.brandId)">
             {{ $t('table.delete') }}
           </el-button>
         </template>
@@ -102,7 +102,7 @@
 import Pagination from '@/components/Pagination'
 import AddOrUpdate from './add-or-update.vue'
 import permission from '@/directive/permission/index.js'
-import * as api from '@/api/product/brand'
+import * as api from '@/api/goods/brand'
 
 export default {
   name: '',
