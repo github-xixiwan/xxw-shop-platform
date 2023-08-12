@@ -150,7 +150,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(hotSearchId))
+      }).then(() => this.deleteById(hotSearchId)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(hotSearchId) {
       api.deleteById(hotSearchId).then(() => {

@@ -51,7 +51,7 @@ export default {
         apiDomainName: [
           { required: true, message: this.$i18n.t('platform.config.paymentServiceDomainNullTips'), trigger: 'blur' }
         ],
-        multishopDomainName: [
+        businessDomainName: [
           { required: true, message: this.$i18n.t('platform.config.shopSideDomainNullTips'), trigger: 'blur' }
         ],
         platformDomainName: [

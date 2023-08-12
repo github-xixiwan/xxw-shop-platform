@@ -196,7 +196,8 @@ export default {
             })
           })
         })
-        .catch(() => {
+        .catch(err => {
+          console.log(err)
         })
     },
 

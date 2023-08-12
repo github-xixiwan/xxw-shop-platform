@@ -3,7 +3,7 @@
     <!-- 搜索相关区域 -->
     <div class="filter-container">
       <el-button size="mini" icon="el-icon-search" class="filter-item" @click="getPage()">{{ $t('table.search') }}</el-button>
-      <el-button v-permission="['multishop:notice:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
+      <el-button v-permission="['business:notice:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
     </div>
 
     <!-- 列表相关区域 -->
@@ -42,10 +42,10 @@
 
       <el-table-column :label="$t('table.actions')" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
-          <el-button v-permission="['multishop:notice:update']" type="text" @click="addOrUpdateHandle(row.id)">
+          <el-button v-permission="['business:notice:update']" type="text" @click="addOrUpdateHandle(row.id)">
             {{ $t('table.edit') }}
           </el-button>
-          <el-button v-permission="['multishop:notice:delete']" type="text" @click="deleteHandle(row.id)">
+          <el-button v-permission="['business:notice:delete']" type="text" @click="deleteHandle(row.id)">
             {{ $t('table.delete') }}
           </el-button>
         </template>
@@ -111,7 +111,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(id))
+      }).then(() => this.deleteById(id)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(id) {
       api.deleteById(id).then(() => {

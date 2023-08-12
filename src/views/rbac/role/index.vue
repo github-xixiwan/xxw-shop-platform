@@ -110,7 +110,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(roleId))
+      }).then(() => this.deleteById(roleId)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(roleId) {
       api.deleteById(roleId).then(() => {

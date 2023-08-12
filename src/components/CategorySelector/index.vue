@@ -148,7 +148,6 @@ export default {
       if (this.isCreateCategory && !this.firstCategorys.id) {
         return
       }
-      this.$store.commit('common/removeMainActiveTab')
       var selectedCategories = []
       if (this.firstCategorys.id) {
         selectedCategories.push(this.firstCategorys.name)

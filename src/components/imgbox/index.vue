@@ -447,6 +447,8 @@ export default {
               this.searchImg()
             }
           })
+        }).catch(err => {
+          console.log(err)
         })
       })
     },
@@ -546,6 +548,8 @@ export default {
         deleteFile(data).then((data) => {
           this.images = []
           this.searchImg()
+        }).catch(err => {
+          console.log(err)
         })
       })
     },

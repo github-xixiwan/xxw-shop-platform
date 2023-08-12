@@ -222,7 +222,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(categoryId))
+      }).then(() => this.deleteById(categoryId)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(categoryId) {
       api.deleteById(categoryId).then(() => {
@@ -255,7 +257,9 @@ export default {
             onClose: () => this.getPage()
           })
         })
-      }).catch(() => { })
+      }).catch(err => {
+        console.log(err)
+      })
     }
 
   }

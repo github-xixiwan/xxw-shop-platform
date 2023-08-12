@@ -149,7 +149,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(menuId))
+      }).then(() => this.deleteById(menuId)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(menuId) {
       api.deleteByIdAndSysType(menuId, 1).then(() => {

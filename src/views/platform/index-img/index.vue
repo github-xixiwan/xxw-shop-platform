@@ -2,7 +2,7 @@
   <div class="app-container">
     <!-- 搜索相关区域 -->
     <div class="filter-container">
-      <el-button v-permission="['multishop:indexImg:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
+      <el-button v-permission="['business:indexImg:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
     </div>
 
     <!-- 列表相关区域 -->
@@ -45,14 +45,14 @@
       <el-table-column :label="$t('table.actions')" align="center" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
           <el-button
-            v-permission="['multishop:indexImg:update']"
+            v-permission="['business:indexImg:update']"
             type="text"
             @click="addOrUpdateHandle(row.imgId)"
           >
             {{ $t('table.edit') }}
           </el-button>
           <el-button
-            v-permission="['multishop:indexImg:delete']"
+            v-permission="['business:indexImg:delete']"
             type="text"
             @click="deleteHandle(row.imgId)"
           >
@@ -119,7 +119,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(imgId))
+      }).then(() => this.deleteById(imgId)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(imgId) {
       api.deleteById(imgId).then(() => {

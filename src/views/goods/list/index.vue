@@ -4,10 +4,6 @@
     <div class="screening-conditions">
       <el-form :inline="true" :model="dataForm">
         <div class="condition-line">
-          <!-- 商品ID -->
-<!--          <el-form-item label="商品ID">-->
-<!--            <el-input v-model="dataForm.prodId" type="number" placeholder="商品ID" clearable size="mini" />-->
-<!--          </el-form-item>-->
           <!-- 商品编码 -->
           <el-form-item label="商品编码">
             <el-input v-model="dataForm.prodCode" placeholder="商品编码" clearable size="mini" />
@@ -617,7 +613,9 @@ export default {
             onClose: () => this.getDataList()
           })
         })
-      }).catch(() => { })
+      }).catch(err => {
+        console.log(err)
+      })
     },
     // 移入表格行
     enterTableRow(row) {

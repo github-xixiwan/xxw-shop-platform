@@ -189,6 +189,13 @@ export default {
         if (!valid) {
           return
         }
+        if (!this.dataForm.categoryIds || !this.dataForm.categoryIds.length) {
+          this.$message({
+            message: '请至少选择一个分类',
+            duration: 1500
+          })
+          return
+        }
         var dataForm = {
           brandId: this.dataForm.brandId,
           name: this.dataForm.name,

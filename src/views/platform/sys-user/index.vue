@@ -3,7 +3,7 @@
     <!-- 搜索相关区域 -->
     <div class="filter-container">
       <el-button size="mini" icon="el-icon-search" class="filter-item" @click="getPage()">{{ $t('table.search') }}</el-button>
-      <el-button v-permission="['multishop:shopUser:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
+      <el-button v-permission="['business:shopUser:save']" size="mini" icon="el-icon-plus" type="primary" class="filter-item" @click="addOrUpdateHandle()">{{ $t('table.create') }}</el-button>
     </div>
 
     <!-- 列表相关区域 -->
@@ -127,7 +127,9 @@ export default {
         confirmButtonText: this.$t('table.confirm'),
         cancelButtonText: this.$t('table.cancel'),
         type: 'warning'
-      }).then(() => this.deleteById(sysUserId))
+      }).then(() => this.deleteById(sysUserId)).catch(err => {
+        console.log(err)
+      })
     },
     deleteById(sysUserId) {
       api.deleteById(sysUserId).then(() => {

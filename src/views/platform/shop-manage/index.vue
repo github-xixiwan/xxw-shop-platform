@@ -67,13 +67,13 @@
       <el-table-column :label="$t('table.actions')" align="center" class-name="small-padding fixed-width">
         <template slot-scope="{row}">
           <el-button
-            v-permission="['multishop:indexImg:update']"
+            v-permission="['business:indexImg:update']"
             type="text"
             class="el-icon-view"
             @click="addOrUpdateHandle(row.shopId)"
           >查看</el-button>
           <el-button
-            v-permission="['multishop:indexImg:update']"
+            v-permission="['business:indexImg:update']"
             type="text"
             class="el-icon-setting"
             @click="accountManageHandle(row.shopId)"
