@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      title: 'xxw_shop'
+      title: 'xxw-shop 平台端'
     }
   }
 }
