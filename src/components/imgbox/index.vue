@@ -153,7 +153,7 @@
 
         <!-- 选择/创建/修改分组 -->
         <el-dialog :title="selectGroup?'选择分组':createGroup?'新建分组':''" :visible.sync="showGroupVisible" :append-to-body="showGroupVisible">
-          <el-form :model="groupForm" ref="groupForm" label-width="90px" style="width:400px">
+          <el-form :model="groupForm" :rules="rules" ref="groupForm" label-width="90px" style="width:400px">
             <el-form-item v-if="createGroup" label="分组名称" prop="name">
               <el-input placeholder="请输入分组名称" v-model="groupForm.name"></el-input>
             </el-form-item>
@@ -404,6 +404,7 @@ export default {
               type: 'warning',
               duration: 1000
             })
+            return
           }
           var param = {
             attachFileGroupId: this.groupForm.attachFileGroupId,
@@ -693,6 +694,8 @@ export default {
         attachFile.filePath = '/' + this.ossList[0].dir + this.ossList[0].fileName
         console.log('mioIo 上传 file:', file)
         minIoImgUpdate(this.ossList[0].actionUrl, file).then(data => {
+        }).catch(err => {
+          console.log(err)
         })
       }
       this.attachFiles.push(attachFile)

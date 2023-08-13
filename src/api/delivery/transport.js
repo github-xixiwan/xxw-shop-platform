@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function page(pageParam) {
   return request({
-    url: '/xxw_shop_delivery/m/transport/page',
+    url: '/xxw_shop_delivery/b/transport/page',
     method: 'get',
     params: pageParam
   })
@@ -10,7 +10,7 @@ export function page(pageParam) {
 
 export function get(transportId) {
   return request({
-    url: '/xxw_shop_delivery/m/transport',
+    url: '/xxw_shop_delivery/b/transport',
     method: 'get',
     params: {
       transportId
@@ -20,7 +20,7 @@ export function get(transportId) {
 
 export function save(data) {
   return request({
-    url: '/xxw_shop_delivery/m/transport',
+    url: '/xxw_shop_delivery/b/transport',
     method: 'post',
     data
   })
@@ -28,7 +28,7 @@ export function save(data) {
 
 export function update(data) {
   return request({
-    url: '/xxw_shop_delivery/m/transport',
+    url: '/xxw_shop_delivery/b/transport',
     method: 'put',
     data
   })
@@ -36,7 +36,7 @@ export function update(data) {
 
 export function deleteById(transportId) {
   return request({
-    url: '/xxw_shop_delivery/m/transport',
+    url: '/xxw_shop_delivery/b/transport',
     method: 'delete',
     params: {
       transportId
@@ -46,7 +46,7 @@ export function deleteById(transportId) {
 
 export function listArea() {
   return request({
-    url: '/xxw_shop_delivery/m/area/list',
+    url: '/xxw_shop_delivery/b/area/list',
     method: 'get',
     params: {}
   })
@@ -54,7 +54,7 @@ export function listArea() {
 
 export function listAreaInfo() {
   return request({
-    url: '/xxw_shop_delivery/m/area/areaListInfo',
+    url: '/xxw_shop_delivery/b/area/areaListInfo',
     method: 'get',
     params: {}
   })

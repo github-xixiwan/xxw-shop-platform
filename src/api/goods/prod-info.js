@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function page(pageParam) {
   return request({
-    url: '/xxw_shop_goods/m/spu/page',
+    url: '/xxw_shop_goods/b/spu/page',
     method: 'get',
     params: pageParam
   })
@@ -20,7 +20,7 @@ export function getProdInfoPage(spuId) {
 
 export function deleteById(spuId) {
   return request({
-    url: '/xxw_shop_goods/m/spu',
+    url: '/xxw_shop_goods/b/spu',
     method: 'delete',
     params: {
       spuId

@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function page(pageParam) {
   return request({
-    url: '/xxw_shop_search/p/search/page',
+    url: '/xxw_shop_search/c/search/page',
     method: 'get',
     params: pageParam
   })
@@ -31,7 +31,7 @@ export function deleteById(spuId) {
 
 export function updateProdStatus(data) {
   return request({
-    url: '/xxw_shop_goods/m/spu/prod_status',
+    url: '/xxw_shop_goods/b/spu/prod_status',
     method: 'put',
     data
   })
@@ -39,7 +39,7 @@ export function updateProdStatus(data) {
 
 export function updatePartProdStatus(data) {
   return request({
-    url: '/xxw_shop_goods/m/spu/update_spu_data',
+    url: '/xxw_shop_goods/b/spu/update_spu_data',
     method: 'put',
     data
   })
