@@ -36,7 +36,7 @@
         <el-form-item label="店铺logo：" label-width="110px" prop="shopLogo">
           <img-upload v-if="!shopId" v-model="dataForm.shopLogo" />
           <div v-if="shopId" class="shoplogo">
-            <img :src="dataForm.shopLogo" @click="picturePreview(dataForm.shopLogo)">
+            <img :src="resourcesUrl+dataForm.shopLogo" @click="picturePreview(dataForm.shopLogo)">
           </div>
         </el-form-item>
         <!-- 身份证正反面 -->
@@ -44,12 +44,12 @@
           <div class="idcard-box">
             <div class="front">
               <img-upload v-if="!shopId" v-model="dataForm.identityCardFront" />
-              <img v-if="shopId" :src="dataForm.identityCardFront" @click="picturePreview(dataForm.identityCardFront)">
+              <img v-if="shopId" :src="resourcesUrl+dataForm.identityCardFront" @click="picturePreview(dataForm.identityCardFront)">
               <div class="text">身份证正面</div>
             </div>
             <div class="back">
               <img-upload v-if="!shopId" v-model="dataForm.identityCardLater" />
-              <img v-if="shopId" :src="dataForm.identityCardLater" @click="picturePreview(dataForm.identityCardLater)">
+              <img v-if="shopId" :src="resourcesUrl+dataForm.identityCardLater" @click="picturePreview(dataForm.identityCardLater)">
               <div class="text">身份证背面</div>
             </div>
           </div>
@@ -58,7 +58,7 @@
         <el-form-item label="营业执照：" label-width="110px" prop="businessLicense">
           <img-upload v-if="!shopId" v-model="dataForm.businessLicense" />
           <div v-if="shopId" class="licens">
-            <img :src="dataForm.businessLicense" @click="picturePreview(dataForm.businessLicense)">
+            <img :src="resourcesUrl+dataForm.businessLicense" @click="picturePreview(dataForm.businessLicense)">
           </div>
         </el-form-item>
 
@@ -127,7 +127,8 @@ export default {
         businessLicense: [
           { required: true, message: '请选择营业执照', trigger: 'change' }
         ]
-      }
+      },
+      resourcesUrl: process.env.VUE_APP_RESOURCES_URL
     }
   },
 
