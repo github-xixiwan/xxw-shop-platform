@@ -55,7 +55,7 @@
 
         <el-table-column align="center" width="140" label="品牌图片">
           <template slot-scope="{row}">
-            <img v-if="row.imgUrl" :src="(row.imgUrl).indexOf('http')===-1 ? row.imgUrl : row.imgUrl" class="brand-img" />
+            <img v-if="row.imgUrl" :src="row.imgUrl" class="brand-img" />
           </template>
         </el-table-column>
 

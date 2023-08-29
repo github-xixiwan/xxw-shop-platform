@@ -42,7 +42,7 @@
       <!-- 品牌logo图片 -->
       <el-table-column :label="$t('goods.brand.imgUrl')" prop="imgUrl" align="center" width="200">
         <template slot-scope="{row}">
-          <img :src="(row.imgUrl).indexOf('http')===-1 ? row.imgUrl : row.imgUrl" class="brand-logo-img">
+          <img :src="row.imgUrl" class="brand-logo-img">
         </template>
       </el-table-column>
       <!-- 检索首字母 -->
