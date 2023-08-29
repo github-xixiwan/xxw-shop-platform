@@ -148,6 +148,8 @@ export default {
         }
         // 层级 0第一级
         this.dataForm.level = !this.selectedCategories.length ? 0 : this.selectedCategories.length
+        this.dataForm.imgUrl = this.dataForm.imgUrl.substring(this.dataForm.imgUrl.lastIndexOf('//') + 1, this.dataForm.imgUrl.lastIndexOf('?'))
+        this.dataForm.icon = this.dataForm.icon.substring(this.dataForm.icon.lastIndexOf('//') + 1, this.dataForm.icon.lastIndexOf('?'))
         const request = this.dataForm.categoryId ? api.update(this.dataForm) : api.save(this.dataForm)
         request.then(data => {
           this.$message({

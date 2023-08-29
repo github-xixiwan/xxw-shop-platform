@@ -58,7 +58,7 @@
               </div>
               <div class="img-item" v-for="(img, itemIndex) in imgRes" :key="itemIndex">
                 <div class="thumb-wp" @click="onClickListImage(img)">
-                  <img :src="(img.filePath).indexOf('http')===-1 ? resourcesUrl + img.filePath : img.filePath" alt="img.name" />
+                  <img :src="(img.filePath).indexOf('http')===-1 ? img.filePath : img.filePath" alt="img.name" />
                 </div>
                 <div class="title" @click="onClickListImage(img)">{{img.fileName}}</div>
                 <div class="operate">

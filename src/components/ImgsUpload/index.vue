@@ -118,7 +118,7 @@ export default {
       if (img.indexOf('http://') === 0 || img.indexOf('https://') === 0) {
         return img
       }
-      return this.resourcesUrl + img
+      return this.img
     },
     /**
      * 删除图片

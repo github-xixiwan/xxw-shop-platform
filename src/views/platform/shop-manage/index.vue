@@ -39,7 +39,7 @@
       <!-- 店铺logo -->
       <el-table-column label="店铺logo" prop="imgUrl" align="center" width="200px">
         <template slot-scope="{row}">
-          <img :src="(row.shopLogo).indexOf('http')===-1 ? resourcesUrl + row.shopLogo : row.shopLogo" class="img">
+          <img :src="(row.shopLogo).indexOf('http')===-1 ? row.shopLogo : row.shopLogo" class="img">
         </template>
       </el-table-column>
       <!-- 店铺简介 -->

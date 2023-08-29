@@ -99,7 +99,7 @@ export default {
       console.log(this.dataForm.sysUserId)
       this.$refs.dataForm.validate(valid => {
         if (valid) {
-          console.log(this.dataForm.sysUserId)
+          this.dataForm.avatar = this.dataForm.avatar.substring(this.dataForm.avatar.lastIndexOf('//') + 1, this.dataForm.avatar.lastIndexOf('?'))
           const request = this.dataForm.sysUserId ? api.update(this.dataForm) : api.save(this.dataForm)
           request.then(data => {
             this.$message({

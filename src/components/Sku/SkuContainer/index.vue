@@ -1,18 +1,18 @@
 <template>
   <div class="group-container">
     <div class="spec-name">
-      <div 
-        v-for="(item, index) in sku.leaf" 
-        :key="index" 
+      <div
+        v-for="(item, index) in sku.leaf"
+        :key="index"
         class="spec-name-int">
           <el-tag :type="item.type" effect="plain" @close="handleRemoveSkuLeaf(index)">{{ item[optionText] }}</el-tag>
           <div v-if="item.imgUrl" class="spec-imgbox">
-            <img v-if="hasSkuImage" :src="(item.imgUrl).indexOf('http')===-1 ? resourcesUrl + item.imgUrl : item.imgUrl" class="spec-img" >
+            <img v-if="hasSkuImage" :src="(item.imgUrl).indexOf('http')===-1 ? item.imgUrl : item.imgUrl" class="spec-img" >
             <div class="preview-btn" @click="picturePreview(item.imgUrl)">预览</div>
           </div>
-          <!-- <img-upload 
-            v-if="hasSkuImage" 
-            v-model="item.imgUrl" 
+          <!-- <img-upload
+            v-if="hasSkuImage"
+            v-model="item.imgUrl"
             @input="handleUploadSuccess(item, $event)"
             class="spec-img" /> -->
       </div>
@@ -44,7 +44,7 @@
           </el-select>
         </el-popover>
       </div> -->
-      
+
     </div>
   </div>
 </template>

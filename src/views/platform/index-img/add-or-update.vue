@@ -171,7 +171,7 @@ export default {
         //   })
         //   return
         // }
-        console.log(this.dataForm)
+        this.dataForm.imgUrl = this.dataForm.imgUrl.substring(this.dataForm.imgUrl.lastIndexOf('//') + 1, this.dataForm.imgUrl.lastIndexOf('?'))
         const data = JSON.parse(JSON.stringify(this.dataForm))
         if (!this.relatedSpu) {
           data.spu = null

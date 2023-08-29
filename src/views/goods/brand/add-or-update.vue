@@ -200,7 +200,7 @@ export default {
           brandId: this.dataForm.brandId,
           name: this.dataForm.name,
           desc: this.dataForm.desc,
-          imgUrl: this.dataForm.imgUrl,
+          imgUrl: this.dataForm.imgUrl.substring(this.dataForm.imgUrl.lastIndexOf('//') + 1, this.dataForm.imgUrl.lastIndexOf('?')),
           firstLetter: this.dataForm.firstLetter,
           categoryIds: this.dataForm.categoryIds, // 分类id列表
           seq: this.dataForm.seq

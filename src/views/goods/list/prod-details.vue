@@ -63,7 +63,7 @@
             <div class="part-form-div">
               <div class="part-form-item-tit">商品主图</div>
               <div v-if="dataForm.mainImgUrl" class="part-form-item">
-                <img :src="(dataForm.mainImgUrl).indexOf('http')===-1 ? resourcesUrl + dataForm.mainImgUrl : dataForm.mainImgUrl" class="main-img" @click="picturePreview(dataForm.mainImgUrl)">
+                <img :src="(dataForm.mainImgUrl).indexOf('http')===-1 ? dataForm.mainImgUrl : dataForm.mainImgUrl" class="main-img" @click="picturePreview(dataForm.mainImgUrl)">
                 <!-- <img-upload v-model="dataForm.mainImgUrl" /> -->
               </div>
             </div>
@@ -72,7 +72,7 @@
               <div class="part-form-item-tit">商品轮播图</div>
               <div v-if="dataForm.imgUrls" class="part-form-item">
                 <div v-for="(item,idx) in dataForm.imgUrls" :key="idx" class="imgs">
-                  <img :src="(item).indexOf('http')===-1 ? resourcesUrl + item : item" class="main-img" @click="picturePreview(item)">
+                  <img :src="(item).indexOf('http')===-1 ? item : item" class="main-img" @click="picturePreview(item)">
                 </div>
                 <!-- <imgs-upload v-model="dataForm.imgUrls" /> -->
                 <div class="banner-tips">建议图片尺寸为 800*800，可拖动排序，最多上传9张</div>
@@ -257,7 +257,7 @@ export default {
           // 商品分类选择按钮
           this.showCategorySelectBtn = false
           if (data.brand?.imgUrl) {
-            this.brandImgUrl = (data.brand.imgUrl).indexOf('http') === -1 ? this.resourcesUrl + data.brand.imgUrl : data.brand.imgUrl // 品牌图片
+            this.brandImgUrl = (data.brand.imgUrl).indexOf('http') === -1 ? this.data.brand.imgUrl : data.brand.imgUrl // 品牌图片
           }
           this.brandName = data.brand?.name // 品牌名字
           // 根据分类获取基本属性列表
